@@ -1,10 +1,13 @@
 package controllers
 
 import (
-	"net/http"
 	"github.com/sirupsen/logrus"
+	"net/http"
+	// For API only services it might
+	// not be neccessary to use views.
 	"views"
-	//"models"
+	// Use models to access data.
+	"models"
 )
 
 func Example(w http.ResponseWriter, r *http.Request) {
@@ -14,21 +17,26 @@ func Example(w http.ResponseWriter, r *http.Request) {
 
 	// Logging the start and end of the request.
 	logrus.WithFields(logrus.Fields{
-		"stage": "controller",
+		"stage":    "controller",
 		"function": "Example()",
-		"url": r.URL.Path,
+		"url":      r.URL,
+		"resp":		w,
 	}).Debug("Request recieved")
 
 	defer logrus.WithFields(logrus.Fields{
-		"stage": "controller",
+		"stage":    "controller",
 		"function": "Example()",
-		"url": r.URL.Path,
+		"url":      r.URL.Path,
 	}).Debug("Request processed")
 
-	data := views.ExampleData {
-		Message: "Hello world!\n",
+	// Get data from model
+	modelData := models.GetExampleData()
+
+	// Transform this into data for view
+	viewData := views.ExampleData {
+		Message: modelData.Message,
 	}
 
 	// Pass the data to the view.
-	views.Example(w, data)
+	views.Example(w, viewData)
 }

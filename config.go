@@ -31,6 +31,7 @@ type Conf struct {
 type ServerConf struct {
 	Port    int    `yaml:"port"`
 	Address string `yaml:"address"`
+	AssetDirectory string `yaml:"assetdir"`
 }
 
 type LoggingConf struct {
@@ -45,7 +46,7 @@ func configure(path string) (ServerConf, error) {
 		it onto other functions that actually
 		perform the configuration process.
 
-		Everything except the actual HTTP 
+		Everything except the actual HTTP
 		server should be configured in here.
 		This allows for easy reloading by just
 		calling the configure function without
