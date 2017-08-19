@@ -41,6 +41,8 @@ func addRoutes(assetDir string) *http.ServeMux {
 	
 	// Define custom routes here
 	mux.HandleFunc("/", controllers.Example)
+	mux.HandleFunc("/sku", controllers.Sku)
+
 	// End custom routes.
 	return mux
 }

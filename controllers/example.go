@@ -1,12 +1,14 @@
 package controllers
 
 import (
-	"github.com/sirupsen/logrus"
+	//"github.com/sirupsen/logrus"
 	"net/http"
 	"encoding/json"
 	// For API only services it might
 	// not be neccessary to use views.
 	//"go-web-framework/views"
+
+
 	// Use models to access data.
 	"go-web-framework/models"
 	"fmt"
@@ -14,23 +16,26 @@ import (
 )
 
 func Example(w http.ResponseWriter, r *http.Request) {
+
+
 	/*
 		Example web page.
 	*/
 
-	// Logging the start and end of the request.
-	logrus.WithFields(logrus.Fields{
-		"stage":    "controller",
-		"function": "Example()",
-		"url":      r.URL,
-		"resp":		w,
-	}).Debug("Request recieved")
+	//// Logging the start and end of the request.
+	//logrus.WithFields(logrus.Fields{
+	//	"stage":    "controller",
+	//	"function": "Example()",
+	//	"url":      r.URL,
+	//	"resp":		w,
+	//}).Debug("Request recieved")
 
-	defer logrus.WithFields(logrus.Fields{
-		"stage":    "controller",
-		"function": "Example()",
-		"url":      r.URL.Path,
-	}).Debug("Request processed")
+	//  请求结束 表示
+	//defer logrus.WithFields(logrus.Fields{
+	//	"stage":    "controller",
+	//	"function": "Example()",
+	//	"url":      r.URL.Path,
+	//}).Debug("Request processed")
 
 	// Get data from model
 	modelData := models.GetExampleData()

@@ -8,6 +8,8 @@ type ExampleData struct {
 	RandomNumber int
 }
 
+
+
 func GetExampleData() (ExampleData) {
 
 	data := ExampleData {
@@ -16,3 +18,4 @@ func GetExampleData() (ExampleData) {
 	}
 	return data
 }
+
