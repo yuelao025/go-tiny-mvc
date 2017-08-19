@@ -2,6 +2,6 @@ server:
   address: 0.0.0.0 # The IP for the server to listen on
   port: 8000 # The port for the server to listen on
   # The path on local disk to be served under /assets/
-  assetdir: /home/aaron/Programming/Go/webframework/go-web-framework/assets
+  assetdir: /gopath/src/go-web-framework/assets
 logging:
   level: debug # The level to log at, debug, info, warning, error. Defaults to info.

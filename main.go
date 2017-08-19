@@ -3,7 +3,6 @@ package main
 // Imports
 
 import (
-	"flag"
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"net/http"
@@ -15,7 +14,7 @@ import (
 // Change the NAME and VERSION constants to be
 // to your project.
 const (
-	NAME    = "YOUR APP NAME HERE"
+	NAME    = "test"
 	VERSION = "0.1.0"
 
 	ERROR_CONFIGURATION = 10
@@ -25,24 +24,22 @@ const (
 
 // Globals
 
-var configPath string = fmt.Sprintf("/etc/%s.yaml", NAME)
+var configPath string = fmt.Sprintf("/gopath/src/go-web-framework/%s.yaml", NAME)
 
 // Functions
 
 func init() {
-	logrus.SetOutput(os.Stdout)
-	logrus.SetFormatter(&logrus.JSONFormatter{})
+
+	// 设置logrus 格式和输出目的地！
+	//logrus.SetOutput(os.Stdout)
+	//logrus.SetFormatter(&logrus.JSONFormatter{})
+
 	logrus.WithFields(logrus.Fields{
-	//"animal": "walrus",
-	//"size":   10,
+	"animal": "walrus",
+	"size":   10,
 	}).Info("Starting a new run of ", NAME, " ", VERSION)
-	parseArgs()
 }
 
-func parseArgs() {
-	flag.StringVar(&configPath, "config-file", configPath, "Path to configration file.")
-	flag.Parse()
-}
 
 func main() {
 	// Extract configuration.
@@ -82,6 +79,7 @@ func main() {
 	logrus.WithFields(logrus.Fields{
 		"bind": bind,
 	}).Info("Starting server")
+	fmt.Println(111111111)
 	err = http.ListenAndServe(bind, mux)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{

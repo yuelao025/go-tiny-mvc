@@ -10,7 +10,7 @@ package main
 */
 
 import (
-	"controllers"
+	"go-web-framework/controllers"
 	"github.com/sirupsen/logrus"
 	"net/http"
 )
