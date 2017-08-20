@@ -13,7 +13,7 @@ type ExampleData struct {
 func GetExampleData() (ExampleData) {
 
 	data := ExampleData {
-		Message: "Hello Alice!\n",
+		Message: "default  value !\n",
 		RandomNumber: 10123,
 	}
 	return data

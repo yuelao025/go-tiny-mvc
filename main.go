@@ -79,7 +79,6 @@ func main() {
 	logrus.WithFields(logrus.Fields{
 		"bind": bind,
 	}).Info("Starting server")
-	fmt.Println(111111111)
 	err = http.ListenAndServe(bind, mux)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{

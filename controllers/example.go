@@ -12,7 +12,6 @@ import (
 	// Use models to access data.
 	"go-web-framework/models"
 	"fmt"
-	"os"
 )
 
 func Example(w http.ResponseWriter, r *http.Request) {
@@ -47,7 +46,9 @@ func Example(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// 将 json 输出
-	os.Stdout.Write(rlt)
+	fmt.Fprintf(w, string(rlt))
+	// 这个只能是控制台上
+	//os.Stdout.Write(rlt)
 
 	//fmt.Println(rlt)
 

@@ -11,7 +11,9 @@ package main
 
 import (
 	"go-web-framework/controllers"
+
 	"github.com/sirupsen/logrus"
+
 	"net/http"
 )
 
@@ -42,6 +44,8 @@ func addRoutes(assetDir string) *http.ServeMux {
 	// Define custom routes here
 	mux.HandleFunc("/", controllers.Example)
 	mux.HandleFunc("/sku", controllers.Sku)
+	mux.HandleFunc("/test", controllers.UserInfo)
+
 
 	// End custom routes.
 	return mux
