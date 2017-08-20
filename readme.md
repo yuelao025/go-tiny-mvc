@@ -4,3 +4,4 @@
 
 2. 依赖yaml 库
 
+3. use gorm
